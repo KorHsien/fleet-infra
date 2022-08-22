@@ -1,0 +1,13 @@
+persistence:
+  enabled: true
+certResolvers:
+  cloudflare:
+    email: KorHsien@gmail.com
+    storage: /data/acme.json
+    dnsChallenge:
+      provider: cloudflare
+      resolvers:
+      - 1.1.1.1
+envFrom:
+- secretRef:
+    name: cloudflare-api-token
