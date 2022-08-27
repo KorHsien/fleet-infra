@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: shadowsocks
+  labels:
+    app: shadowsocks
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: shadowsocks
+  template:
+    metadata:
+      labels:
+        app: shadowsocks
+    spec:
+      containers:
+      - name: shadowsocks
+        image: ghcr.io/shadowsocks/ssserver-rust
+        ports:
+        - protocol: TCP
+          containerPort: 8388
+        - protocol: UDP
+          containerPort: 8388
+        volumeMounts:
+        - name: config
+          mountPath: /etc/shadowsocks-rust
+          readOnly: true
+        envFrom:
+        - secretRef:
+            name: password
+      volumes:
+      - name: config
+        configMap:
+          name: config
