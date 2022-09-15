@@ -24,4 +24,13 @@ spec:
         prometheusSpec:
           serviceMonitorSelectorNilUsesHelmValues: false
           podMonitorSelectorNilUsesHelmValues: false
+    - op: add
+      path: /spec/values/grafana
+      value:
+        grafana.ini:
+          auth.jwt:
+            enabled: true
+            header_name: Teleport-Jwt-Assertion
+            username_claim: sub
+            jwk_set_url: https://tele.ku1.uk/.well-known/jwks.json
 

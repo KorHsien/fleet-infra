@@ -1,0 +1,19 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: teleport
+spec:
+  entryPoints:
+  - websecure
+  routes:
+  - match: HostRegexp(`tele.ku1.uk`, `{subdomain:[A-Za-z0-9-]+}.tele.ku1.uk`)
+    kind: Rule
+    services:
+    - name: teleport
+      port: 3080
+  tls:
+    certResolver: cloudflare
+    domains:
+    - main: tele.ku1.uk
+      sans:
+      - "*.tele.ku1.uk"

@@ -1,0 +1,13 @@
+roles: kube,app
+proxyAddr: tele.ku1.uk:443
+kubeClusterName: oracle
+apps:
+- name: podinfo
+  uri: http://podinfo.podinfo.svc:9898
+- name: kube-dash
+  uri: https://kubernetes-dashboard.kube-system.svc
+  insecure_skip_verify: true
+- name: grafana
+  uri: http://kube-prometheus-stack-grafana.monitoring.svc
+- name: traefik
+  uri: http://traefik-api.traefik.svc/dashboard/

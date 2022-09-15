@@ -1,0 +1,18 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: teleport
+
+resources:
+- namespace.yaml
+- source.yaml
+- release.yaml
+- service.yaml
+- ingressroute.yaml
+- teleport-kube-agent-join-token-sealed.yaml
+
+configMapGenerator:
+- name: values
+  files:
+  - values.yaml
+  options:
+    disableNameSuffixHash: true
