@@ -5,7 +5,7 @@ apps:
 - name: podinfo
   uri: http://podinfo.podinfo.svc:9898
 - name: kube-dash
-  uri: https://kubernetes-dashboard.kube-system.svc
+  uri: https://kubernetes-dashboard.kubernetes-dashboard.svc
   insecure_skip_verify: true
 - name: grafana
   uri: http://kube-prometheus-stack-grafana.monitoring.svc
