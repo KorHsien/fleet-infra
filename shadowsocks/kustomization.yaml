@@ -4,7 +4,7 @@ namespace: shadowsocks
 
 resources:
 - namespace.yaml
-- deployment.yaml
+- daemonset.yaml
 - service.yaml
 - password-sealed.yaml
 
