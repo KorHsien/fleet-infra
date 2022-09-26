@@ -11,3 +11,6 @@ certResolvers:
 envFrom:
 - secretRef:
     name: cloudflare-api-token
+ports:
+  web:
+    redirectTo: websecure
