@@ -17,4 +17,7 @@ spec:
   interval: 1h0m0s
   releaseName: kubernetes-dashboard
   targetNamespace: kubernetes-dashboard
+  values:
+    metricsScraper:
+      enabled: true
 
