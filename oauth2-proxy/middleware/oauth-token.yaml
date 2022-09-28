@@ -1,0 +1,10 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: Middleware
+metadata:
+  name: oauth-token
+spec:
+  forwardAuth:
+    address: http://oauth2-proxy.oauth2-proxy.svc/
+    trustForwardHeader: true
+    authResponseHeaders:
+    - Authorization

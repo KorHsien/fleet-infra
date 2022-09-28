@@ -1,0 +1,60 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: oauth2-proxy
+spec:
+  entryPoints:
+  - websecure
+  routes:
+  - match: Host(`kube.ku1.uk`) || HostRegexp(`{subdomain:[A-Za-z0-9-]+}.kube.ku1.uk`) && PathPrefix(`/oauth2/`)
+    kind: Rule
+    middlewares:
+    - name: auth-headers
+    services:
+    - name: oauth2-proxy
+      port: 80
+  - match: Host(`podinfo.kube.ku1.uk`)
+    kind: Rule
+    middlewares:
+    - name: oauth-token
+    services:
+    - name: podinfo
+      namespace: podinfo
+      port: 9898
+  - match: Host(`dash.kube.ku1.uk`)
+    kind: Rule
+    middlewares:
+    - name: oauth-token
+    services:
+    - name: kubernetes-dashboard
+      namespace: kubernetes-dashboard
+      port: 443
+  - match: Host(`grafana.kube.ku1.uk`)
+    kind: Rule
+    middlewares:
+    - name: oauth-claims
+    services:
+    - name: kube-prometheus-stack-grafana
+      namespace: monitoring
+      port: 80
+  - match: Host(`gitops.kube.ku1.uk`)
+    kind: Rule
+    middlewares:
+    - name: oauth-token
+    services:
+    - name: ww-gitops-weave-gitops
+      namespace: flux-system
+      port: 9001
+  - match: Host(`traefik.kube.ku1.uk`)
+    kind: Rule
+    middlewares:
+    - name: oauth-claims
+    services:
+    - kind: TraefikService
+      name: api@internal
+  tls:
+    certResolver: cloudflare
+    domains:
+    - main: kube.ku1.uk
+      sans:
+      - "*.kube.ku1.uk"

@@ -8,6 +8,11 @@ certResolvers:
       provider: cloudflare
       resolvers:
       - 1.1.1.1
+providers:
+  kubernetesCRD:
+    allowCrossNamespace: true
+additionalArguments:
+- --serverstransport.insecureskipverify=true
 envFrom:
 - secretRef:
     name: cloudflare-api-token

@@ -27,7 +27,12 @@ spec:
     - op: add
       path: /spec/values/grafana
       value:
+        adminUser: KorHsien@gmail.com
         grafana.ini:
+          auth.proxy:
+            enabled: true
+            header_name: X-Auth-Request-Preferred-Username
+            auto_sign_up: true
           auth.jwt:
             enabled: true
             header_name: Teleport-Jwt-Assertion

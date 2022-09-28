@@ -1,0 +1,17 @@
+config:
+  existingSecret: oauth2-proxy
+extraArgs:
+  upstream: static://202
+  provider: oidc
+  oidc-issuer-url: https://login.microsoftonline.com/5dbfa540-5b23-4471-ad6a-c6d8ef02656d/v2.0
+  redirect-url: https://kube.ku1.uk/oauth2/callback
+  scope: email offline_access openid profile
+  email-domain: "*"
+  cookie-domain: .kube.ku1.uk
+  cookie-refresh: 55m
+  whitelist-domain: .kube.ku1.uk
+  reverse-proxy: true
+  set-xauthrequest: true
+  set-authorization-header: true
+  skip-provider-button: true
+  silence-ping-logging: true
