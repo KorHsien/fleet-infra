@@ -1,6 +1,8 @@
 roles: kube,app
 proxyAddr: tele.ku1.uk:443
 kubeClusterName: oracle
+nodeSelector:
+  kubernetes.io/arch: amd64
 apps:
 - name: podinfo
   uri: http://podinfo.podinfo.svc:9898
