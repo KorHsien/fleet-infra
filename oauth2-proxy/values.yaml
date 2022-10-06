@@ -15,3 +15,14 @@ extraArgs:
   set-authorization-header: true
   skip-provider-button: true
   silence-ping-logging: true
+sessionStorage:
+  type: redis
+redis:
+  enabled: true
+  image:
+    repository: redis
+    tag: latest
+  architecture: standalone
+  master:
+    persistence:
+      size: 128Mi
