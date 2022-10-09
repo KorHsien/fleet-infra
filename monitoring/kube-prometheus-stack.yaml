@@ -19,6 +19,9 @@ spec:
     - op: remove
       path: /spec/chart/spec/version
     - op: replace
+      path: /spec/interval
+      value: 1h
+    - op: replace
       path: /spec/values/prometheus
       value:
         prometheusSpec:

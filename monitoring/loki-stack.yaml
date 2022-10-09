@@ -13,4 +13,12 @@ spec:
   sourceRef:
     kind: GitRepository
     name: flux-monitoring
+  patchesJson6902:
+  - target:
+      kind: HelmRelease
+      name: loki-stack
+    patch:
+    - op: replace
+      path: /spec/interval
+      value: 1h
 

@@ -14,7 +14,7 @@ spec:
         name: podinfo
   install:
     createNamespace: true
-  interval: 10m0s
+  interval: 1h0m0s
   releaseName: podinfo
   targetNamespace: podinfo
 
