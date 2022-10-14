@@ -53,8 +53,4 @@ spec:
     - kind: TraefikService
       name: api@internal
   tls:
-    certResolver: cloudflare
-    domains:
-    - main: kube.ku1.uk
-      sans:
-      - "*.kube.ku1.uk"
+    secretName: kube.ku1.uk

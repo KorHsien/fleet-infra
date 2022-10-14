@@ -12,8 +12,4 @@ spec:
     - name: teleport
       port: 3080
   tls:
-    certResolver: cloudflare
-    domains:
-    - main: tele.ku1.uk
-      sans:
-      - "*.tele.ku1.uk"
+    secretName: tele.ku1.uk

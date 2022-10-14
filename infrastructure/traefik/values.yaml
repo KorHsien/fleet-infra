@@ -1,21 +1,8 @@
-persistence:
-  enabled: true
-certResolvers:
-  cloudflare:
-    email: KorHsien@gmail.com
-    storage: /data/acme.json
-    dnsChallenge:
-      provider: cloudflare
-      resolvers:
-      - 1.1.1.1
 providers:
   kubernetesCRD:
     allowCrossNamespace: true
 additionalArguments:
 - --serverstransport.insecureskipverify=true
-envFrom:
-- secretRef:
-    name: cloudflare-api-token
 ports:
   web:
     redirectTo: websecure

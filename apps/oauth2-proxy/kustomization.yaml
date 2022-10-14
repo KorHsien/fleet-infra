@@ -6,6 +6,7 @@ resources:
 - namespace.yaml
 - source.yaml
 - release.yaml
+- certificate.yaml
 - ingressroute.yaml
 - secret-sealed.yaml
 - middleware/auth-headers.yaml

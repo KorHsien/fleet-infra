@@ -7,6 +7,7 @@ resources:
 - source.yaml
 - release.yaml
 - service.yaml
+- certificate.yaml
 - ingressroute.yaml
 - teleport-kube-agent-join-token-sealed.yaml
 

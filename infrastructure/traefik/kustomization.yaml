@@ -6,7 +6,6 @@ resources:
 - namespace.yaml
 - source.yaml
 - release.yaml
-- cloudflare-api-token-sealed.yaml
 - traefik-api.yaml
 
 configMapGenerator:
