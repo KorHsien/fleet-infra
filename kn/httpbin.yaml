@@ -1,0 +1,12 @@
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: httpbin
+  namespace: kn
+spec:
+  template:
+    spec:
+      containers:
+      - image: kong/httpbin
+        ports:
+        - containerPort: 80
