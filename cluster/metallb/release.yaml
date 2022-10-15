@@ -11,4 +11,11 @@ spec:
   sourceRef:
     kind: GitRepository
     name: metallb
+  healthChecks:
+    - kind: DaemonSet
+      name: speaker
+      namespace: metallb-system
+    - kind: Deployment
+      name: controller
+      namespace: metallb-system
 
