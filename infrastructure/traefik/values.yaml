@@ -6,3 +6,5 @@ additionalArguments:
 ports:
   web:
     redirectTo: websecure
+service:
+  ipFamilyPolicy: PreferDualStack
