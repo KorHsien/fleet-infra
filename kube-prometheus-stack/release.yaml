@@ -21,6 +21,10 @@ spec:
   values:
     alertmanager:
       enabled: false
+    kube-state-metrics:
+      metricLabelsAllowlist:
+        - pods=[*]
+        - deployments=[app.kubernetes.io/name,app.kubernetes.io/component,app.kubernetes.io/instance]
     prometheus:
       prometheusSpec:
         serviceMonitorSelectorNilUsesHelmValues: false
@@ -37,4 +41,7 @@ spec:
           header_name: Teleport-Jwt-Assertion
           username_claim: sub
           jwk_set_url: https://tele.ku1.uk/.well-known/jwks.json
+      sidecar:
+        dashboards:
+          searchNamespace: ALL
 

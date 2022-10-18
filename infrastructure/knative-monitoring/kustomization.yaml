@@ -1,0 +1,12 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+- https://raw.githubusercontent.com/knative-sandbox/monitoring/main/servicemonitor.yaml
+- https://raw.githubusercontent.com/knative-sandbox/monitoring/main/grafana/dashboards.yaml
+patches:
+- target:
+    kind: ConfigMap
+  patch: |
+    - op: replace
+      path: /metadata/labels/grafana_dashboard
+      value: "1"
