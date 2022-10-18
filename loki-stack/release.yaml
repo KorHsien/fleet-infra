@@ -1,0 +1,26 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: loki-stack
+  namespace: monitoring
+spec:
+  chart:
+    spec:
+      chart: loki-stack
+      reconcileStrategy: ChartVersion
+      sourceRef:
+        kind: HelmRepository
+        name: grafana
+  interval: 1h0m0s
+  releaseName: loki-stack
+  values:
+    loki:
+      isDefault: false
+      config:
+        ruler:
+          storage: # https://github.com/grafana/grafana/issues/42735#issuecomment-1074100996
+            type: local
+            local:
+              directory: /data/loki/rules
+

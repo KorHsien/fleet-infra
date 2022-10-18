@@ -1,12 +1,10 @@
 ---
 apiVersion: source.toolkit.fluxcd.io/v1beta2
-kind: GitRepository
+kind: HelmRepository
 metadata:
-  name: flux-monitoring
+  name: grafana
   namespace: monitoring
 spec:
   interval: 1h0m0s
-  ref:
-    semver: "*"
-  url: https://github.com/fluxcd/flux2
+  url: https://grafana.github.io/helm-charts
 

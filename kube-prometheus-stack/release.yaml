@@ -1,0 +1,40 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: kube-prometheus-stack
+  namespace: monitoring
+spec:
+  chart:
+    spec:
+      chart: kube-prometheus-stack
+      reconcileStrategy: ChartVersion
+      sourceRef:
+        kind: HelmRepository
+        name: prometheus-community
+  install:
+    crds: Create
+  interval: 1h0m0s
+  releaseName: kube-prometheus-stack
+  upgrade:
+    crds: CreateReplace
+  values:
+    alertmanager:
+      enabled: false
+    prometheus:
+      prometheusSpec:
+        serviceMonitorSelectorNilUsesHelmValues: false
+        podMonitorSelectorNilUsesHelmValues: false
+    grafana:
+      adminUser: KorHsien@gmail.com
+      grafana.ini:
+        auth.proxy:
+          enabled: true
+          header_name: X-Auth-Request-Preferred-Username
+          auto_sign_up: true
+        auth.jwt:
+          enabled: true
+          header_name: Teleport-Jwt-Assertion
+          username_claim: sub
+          jwk_set_url: https://tele.ku1.uk/.well-known/jwks.json
+
