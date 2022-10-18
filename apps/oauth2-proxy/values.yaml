@@ -15,6 +15,7 @@ extraArgs:
   set-authorization-header: true
   skip-provider-button: true
   silence-ping-logging: true
+  request-logging: "false"
 sessionStorage:
   type: redis
 redis:

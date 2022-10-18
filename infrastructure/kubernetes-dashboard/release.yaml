@@ -18,6 +18,8 @@ spec:
   releaseName: kubernetes-dashboard
   targetNamespace: kubernetes-dashboard
   values:
+    extraArgs:
+    - --api-log-level=NONE
     metricsScraper:
       enabled: true
 
