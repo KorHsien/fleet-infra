@@ -2,13 +2,13 @@
 apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
 kind: Kustomization
 metadata:
-  name: infrastructure
+  name: metallb-config
   namespace: flux-system
 spec:
   dependsOn:
-  - name: sealed-secrets
-  interval: 10m0s
-  path: ./infrastructure
+  - name: metallb
+  interval: 1h0m0s
+  path: ./metallb
   prune: true
   sourceRef:
     kind: GitRepository
