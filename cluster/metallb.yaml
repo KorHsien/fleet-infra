@@ -2,11 +2,9 @@
 apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
 kind: Kustomization
 metadata:
-  name: metallb-config
+  name: metallb
   namespace: flux-system
 spec:
-  dependsOn:
-  - name: metallb
   interval: 1h0m0s
   path: ./metallb
   prune: true
