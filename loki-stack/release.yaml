@@ -18,6 +18,8 @@ spec:
     loki:
       isDefault: false
       config:
+        server:
+          log_level: warn
         ruler:
           storage: # https://github.com/grafana/grafana/issues/42735#issuecomment-1074100996
             type: local
