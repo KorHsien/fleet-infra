@@ -14,9 +14,7 @@ spec:
         name: ww-gitops
   interval: 1h0m0s
   values:
-    adminUser:
-      create: true
-      createSecret: false
-      username: admin
+    additionalArgs:
+    - --auth-methods=oidc
     listOCIRepositories: true
 
