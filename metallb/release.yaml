@@ -19,4 +19,7 @@ spec:
   targetNamespace: metallb-system
   upgrade:
     crds: CreateReplace
+  values:
+    crds:
+      validationFailurePolicy: Ignore # https://github.com/metallb/metallb/issues/1597
 
