@@ -10,3 +10,7 @@ patches:
     - op: replace
       path: /metadata/labels/grafana_dashboard
       value: "1"
+    - op: add
+      path: /metadata/annotations
+      value:
+        k8s-sidecar-target-directory: Knative
