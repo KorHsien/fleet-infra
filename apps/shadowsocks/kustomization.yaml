@@ -6,7 +6,7 @@ resources:
 - namespace.yaml
 - daemonset.yaml
 - service.yaml
-- password-sealed.yaml
+- password.yaml
 
 configMapGenerator:
 - name: config

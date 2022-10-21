@@ -1,0 +1,13 @@
+apiVersion: external-secrets.io/v1beta1
+kind: ExternalSecret
+metadata:
+  name: teleport-kube-agent-join-token
+spec:
+  refreshInterval: "0"
+  secretStoreRef:
+    kind: ClusterSecretStore
+    name: oracle-vault
+  data:
+  - secretKey: auth-token
+    remoteRef:
+      key: teleport-static-token

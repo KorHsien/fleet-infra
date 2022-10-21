@@ -9,7 +9,7 @@ resources:
 - service.yaml
 - certificate.yaml
 - ingressroute.yaml
-- teleport-kube-agent-join-token-sealed.yaml
+- teleport-kube-agent-join-token.yaml
 
 configMapGenerator:
 - name: values

@@ -8,12 +8,17 @@ resources:
 - release.yaml
 - certificate.yaml
 - ingressroute.yaml
-- secret-sealed.yaml
+- secret.yaml
 - middleware/auth-headers.yaml
 - middleware/oauth-claims.yaml
 - middleware/oauth-token.yaml
 
 configMapGenerator:
+- name: oauth2-proxy
+  files:
+  - oauth2_proxy.cfg
+  options:
+    disableNameSuffixHash: true
 - name: values
   files:
   - values.yaml

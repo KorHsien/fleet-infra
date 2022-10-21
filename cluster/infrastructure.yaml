@@ -6,7 +6,7 @@ metadata:
   namespace: flux-system
 spec:
   dependsOn:
-  - name: sealed-secrets
+  - name: external-secrets
   - name: metallb
   interval: 10m0s
   path: ./infrastructure
