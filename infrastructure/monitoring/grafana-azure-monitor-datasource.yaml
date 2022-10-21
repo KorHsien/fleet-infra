@@ -1,0 +1,33 @@
+apiVersion: external-secrets.io/v1beta1
+kind: ExternalSecret
+metadata:
+  name: grafana-azure-monitor-datasource
+  namespace: monitoring
+spec:
+  refreshInterval: "0"
+  secretStoreRef:
+    kind: ClusterSecretStore
+    name: oracle-vault
+  target:
+    template:
+      metadata:
+        labels:
+          grafana_datasource: "1"
+      data:
+        azure-monitor.yaml: |
+          apiVersion: 1
+          datasources:
+          - name: Azure Monitor
+            type: grafana-azure-monitor-datasource
+            access: proxy
+            jsonData:
+              azureAuthType: clientsecret
+              cloudName: azuremonitor
+              tenantId: {{ .tenant_id }}
+              clientId: {{ .client_id }}
+            secureJsonData:
+              clientSecret: {{ .client_secret }}
+            version: 1
+  dataFrom:
+  - extract:
+      key: azure-monitor-grafana-client-credentials
