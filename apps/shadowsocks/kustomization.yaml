@@ -5,7 +5,6 @@ namespace: shadowsocks
 resources:
 - namespace.yaml
 - daemonset.yaml
-- service.yaml
 - password.yaml
 
 configMapGenerator:

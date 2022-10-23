@@ -13,14 +13,10 @@ spec:
       labels:
         app: shadowsocks
     spec:
+      hostNetwork: true
       containers:
       - name: shadowsocks
         image: ghcr.io/shadowsocks/ssserver-rust
-        ports:
-        - protocol: TCP
-          containerPort: 8388
-        - protocol: UDP
-          containerPort: 8388
         volumeMounts:
         - name: config
           mountPath: /etc/shadowsocks-rust
