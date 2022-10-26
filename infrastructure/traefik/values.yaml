@@ -6,5 +6,9 @@ additionalArguments:
 ports:
   web:
     redirectTo: websecure
+  websecure:
+    http3:
+      enabled: true
+      advertisedPort: 443
 service:
   ipFamilyPolicy: PreferDualStack
