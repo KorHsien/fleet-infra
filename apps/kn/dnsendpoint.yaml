@@ -1,0 +1,11 @@
+apiVersion: externaldns.k8s.io/v1alpha1
+kind: DNSEndpoint
+metadata:
+  name: kn.ku1.uk
+  namespace: kn
+spec:
+  endpoints:
+  - dnsName: "*.kn.ku1.uk"
+    recordType: CNAME
+    targets:
+    - kn.ku1.uk

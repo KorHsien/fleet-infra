@@ -8,6 +8,7 @@ resources:
 - release.yaml
 - service.yaml
 - certificate.yaml
+- dnsendpoint.yaml
 - ingressroute.yaml
 - teleport-kube-agent-join-token.yaml
 
