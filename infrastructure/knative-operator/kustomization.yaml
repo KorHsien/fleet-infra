@@ -4,3 +4,10 @@ namespace: knative-operator
 resources:
 - namespace.yaml
 - https://github.com/knative/operator/releases/latest/download/operator.yaml
+patches:
+- target:
+    kind: ClusterRole
+    name: .*aggregated.*
+  patch: |
+    - op: remove
+      path: /rules
